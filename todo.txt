@@ -1,0 +1,10 @@
+tester l'api si ça renvoi des données
+
+aller chercher les données avec axios
+
+stocker dans le usestate
+
+afficher avec un map 
+mettre logique des cartes dans un composant Card 
+
+bonus --> recharché ce qui est tapé dans l'input
