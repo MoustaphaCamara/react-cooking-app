@@ -2,12 +2,18 @@ import React from "react";
 
 const Recipes = ({ recipe }: { recipe: any }) => {
   function showDesc(e: any) {
-    // faire une nouvelle div "modale" qu'on va rajouter au dom et dedans je rajoute recipe.strinstructions
-    let description = e.target.previousElementSibling;
-    console.log(description);
-    description.classList.add("show-description");
-    description.addEventListener("click", () => {
-      description.classList.remove("show-description");
+    // corriger font size et mettre croix  en absolute et grand
+    let description = e.target.previousElementSibling.innerHTML;
+    let modal = document.createElement("div");
+    let cross = document.createElement("div");
+    document.body.appendChild(modal);
+    modal.classList.add("modal");
+    modal.textContent = description;
+    modal.appendChild(cross);
+    cross.textContent = "X";
+    cross.classList.add("cross");
+    modal.addEventListener("click", (e) => {
+      modal.style.display = "none";
     });
   }
   return (
@@ -22,7 +28,9 @@ const Recipes = ({ recipe }: { recipe: any }) => {
       <p className="recipe-description" id="desc">
         {recipe.strInstructions}
       </p>
-      <button onClick={(e) => showDesc(e)}>show recipe</button>
+      <button className="show-more" onClick={(e) => showDesc(e)}>
+        show more..
+      </button>
       {/* <div id="full-description">Une Description</div> */}
     </div>
   );

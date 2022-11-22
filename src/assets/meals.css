@@ -73,7 +73,37 @@ input[type="text"]:focus {
   color: white;
   text-align: center;
 }
-/* #full-description {
-  position: absolute;
-  color: lightgray;
-} */
+.show-more {
+  border: none;
+  padding: 8px;
+  width: 136px;
+  border-radius: 16px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.show-more:hover {
+  background: rgb(236, 148, 116);
+  color: white;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.877);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px 200px;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  line-height: 2rem;
+}
+.cross {
+  font-size: 3rem;
+}
