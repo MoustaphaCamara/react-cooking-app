@@ -1,19 +1,22 @@
 import React from "react";
 
 const Recipes = ({ recipe }: { recipe: any }) => {
+  // modal
   function showDesc(e: any) {
-    // corriger font size et mettre croix  en absolute et grand
     let description = e.target.previousElementSibling.innerHTML;
     let modal = document.createElement("div");
+    let modalContent = document.createElement("div");
     let cross = document.createElement("div");
     document.body.appendChild(modal);
-    modal.classList.add("modal");
-    modal.textContent = description;
+    modal.appendChild(modalContent);
     modal.appendChild(cross);
-    cross.textContent = "X";
+    modal.classList.add("modal");
+    modalContent.classList.add("modal-content");
     cross.classList.add("cross");
-    modal.addEventListener("click", (e) => {
-      modal.style.display = "none";
+    modalContent.textContent = description;
+    cross.textContent = "X";
+    cross.addEventListener("click", (e) => {
+      modal.remove();
     });
   }
   return (
@@ -31,7 +34,6 @@ const Recipes = ({ recipe }: { recipe: any }) => {
       <button className="show-more" onClick={(e) => showDesc(e)}>
         show more..
       </button>
-      {/* <div id="full-description">Une Description</div> */}
     </div>
   );
 };
